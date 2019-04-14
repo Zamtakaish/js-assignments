@@ -129,7 +129,7 @@ function retry(func, attempts) {
             try{
                 return func();
             }
-            catch {
+            catch (err){
                 currAttempt ++;
             }
         }
