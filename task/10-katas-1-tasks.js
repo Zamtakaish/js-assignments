@@ -17,8 +17,47 @@
  *  ]
  */
 function createCompassPoints() {
-    throw new Error('Not implemented');
     var sides = ['N','E','S','W'];  // use array of cardinal directions only!
+    let compass = Array.apply(null, Array(32));
+    compass = compass.map(function (x) { return {}; });
+    compass[0].abbreviation = sides[0];
+    compass[1].abbreviation = sides[0] + 'b' + sides[1];
+    compass[2].abbreviation = sides[0] + sides[0] + sides[1];
+    compass[3].abbreviation = sides[0] + sides[1] + 'b' + sides[0];
+    compass[4].abbreviation = sides[0] + sides[1];
+    compass[5].abbreviation = sides[0] + sides[1] + 'b' + sides[1];
+    compass[6].abbreviation = sides[1] + sides[0] + sides[1];
+    compass[7].abbreviation = sides[1] + 'b' + sides[0];
+    compass[8].abbreviation = sides[1];
+    compass[9].abbreviation = sides[1] + 'b' + sides[2];
+    compass[10].abbreviation = sides[1] + sides[2] + sides[1];
+    compass[11].abbreviation = sides[2] + sides[1] + 'b' + sides[1];
+    compass[12].abbreviation = sides[2] + sides[1];
+    compass[13].abbreviation = sides[2] + sides[1] + 'b' + sides[2];
+    compass[14].abbreviation = sides[2] + sides[2] + sides[1];
+    compass[15].abbreviation = sides[2] + 'b' + sides[1];
+    compass[16].abbreviation = sides[2];
+    compass[17].abbreviation = sides[2] + 'b' + sides[3];
+    compass[18].abbreviation = sides[2] + sides[2] + sides[3];
+    compass[19].abbreviation = sides[2] + sides[3] + 'b' + sides[2];
+    compass[20].abbreviation = sides[2] + sides[3];
+    compass[21].abbreviation = sides[2] + sides[3] + 'b' + sides[3];
+    compass[22].abbreviation = sides[3] + sides[2] + sides[3];
+    compass[23].abbreviation = sides[3] + 'b' + sides[2];
+    compass[24].abbreviation = sides[3];
+    compass[25].abbreviation = sides[3] + 'b' + sides[0];
+    compass[26].abbreviation = sides[3] + sides[0] + sides[3];
+    compass[27].abbreviation = sides[0] + sides[3] + 'b' + sides[3];
+    compass[28].abbreviation = sides[0] + sides[3];
+    compass[29].abbreviation = sides[0] + sides[3] + 'b' + sides[0];
+    compass[30].abbreviation = sides[0] + sides[0] + sides[3];
+    compass[31].abbreviation = sides[0] + 'b' + sides[3];
+    let azimuth = 0;
+    for (let i = 0; i < compass.length; i++){
+        compass[i].azimuth = azimuth;
+        azimuth += 11.25;
+    }
+    return compass;
 }
 
 
